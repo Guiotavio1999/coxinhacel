@@ -1,0 +1,18 @@
+A imagem de compartilhamento (Open Graph / Twitter Card) NÃO depende mais
+de um arquivo estático neste diretório — ela é gerada dinamicamente em
+`app/(public)/opengraph-image.tsx` (e reaproveitada em
+`app/(public)/twitter-image.tsx`), usando os mesmos tokens de cor da
+identidade visual do site (fundo escuro + brilho azul elétrico).
+
+Este diretório ainda aguarda os seguintes arquivos, a serem fornecidos
+pelo administrador da loja quando existirem artes finais:
+
+- favicon.ico (ícone do navegador — hoje usa o padrão do Next.js em
+  app/favicon.ico)
+- logo.svg (logo vetorial oficial da marca, se um dia substituir a
+  versão tipográfica em components/layout/logo.tsx)
+
+Se uma arte oficial de compartilhamento (1200x630) for fornecida no
+futuro, basta substituir `opengraph-image.tsx` por um arquivo estático
+`opengraph-image.png` no mesmo diretório — o Next.js prioriza
+automaticamente o arquivo de imagem quando ambos existem.
