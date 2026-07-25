@@ -13,7 +13,7 @@ export async function readLogoDataUri(): Promise<string> {
 }
 
 export const OG_BACKGROUND = {
-  backgroundColor: "#050506",
+  backgroundColor: "#030405",
   backgroundImage:
-    "radial-gradient(circle at 50% 35%, rgba(46,124,246,0.35), rgba(5,5,6,0) 60%)",
+    "radial-gradient(circle at 50% 35%, rgba(47,128,255,0.35), rgba(3,4,5,0) 60%)",
 } as const;

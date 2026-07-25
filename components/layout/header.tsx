@@ -29,8 +29,8 @@ export function Header() {
       className={cn(
         "ease-premium sticky top-0 z-40 border-b backdrop-blur-md transition-[height,background-color,border-color] duration-[var(--duration-base)]",
         scrolled
-          ? "border-border-subtle bg-background/90 h-14 md:h-16"
-          : "border-transparent bg-background/60 h-16 md:h-20",
+          ? "border-border-subtle bg-background/90 h-[68px]"
+          : "border-transparent bg-background/60 h-[76px]",
       )}
     >
       <div className="container-site flex h-full items-center justify-between">

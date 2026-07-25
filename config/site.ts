@@ -83,10 +83,10 @@ export const siteConfig = {
     "Olá! Vim pelo site da Coxinha Cel e gostaria de saber mais sobre os aparelhos disponíveis.",
 
   seo: {
-    defaultTitle: "Coxinha Cel — iPhones novos e seminovos em Betim, MG",
+    defaultTitle: "Coxinha Cel | iPhones novos e seminovos em Betim",
     titleTemplate: "%s | Coxinha Cel",
     defaultDescription:
-      "Aparelhos novos e seminovos selecionados, com preço justo, procedência e atendimento especializado em Betim, MG. Loja física e atendimento pelo WhatsApp.",
+      "Encontre iPhones novos e seminovos, acessórios e atendimento especializado na Coxinha Cel, em Betim. Consulte modelos, disponibilidade e condições pelo WhatsApp.",
     keywords: [
       "iPhone Betim",
       "iPhone seminovo Betim",
@@ -98,9 +98,9 @@ export const siteConfig = {
   },
 
   theme: {
-    accent: "#2E7CF6",
-    accentLight: "#5AA0FF",
-    background: "#050506",
+    accent: "#2F80FF",
+    accentLight: "#66B4FF",
+    background: "#030405",
   },
 } as const;
 

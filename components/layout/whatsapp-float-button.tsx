@@ -24,7 +24,7 @@ export function WhatsappFloatButton() {
       transition={{ delay: 0.6, duration: 0.4, ease: EASE_PREMIUM }}
       whileHover={{ scale: 1.06 }}
       whileTap={{ scale: 0.96 }}
-      className="bg-whatsapp fixed right-5 bottom-5 z-40 flex h-14 w-14 items-center justify-center rounded-full text-black shadow-[0_8px_30px_-8px_rgba(37,211,102,0.6)] transition-shadow duration-base hover:shadow-[0_8px_40px_-6px_rgba(37,211,102,0.75)] md:right-8 md:bottom-8"
+      className="bg-whatsapp ease-premium fixed right-5 bottom-5 z-40 flex h-14 w-14 items-center justify-center rounded-full text-black shadow-[var(--shadow-card)] transition-shadow duration-[var(--duration-base)] hover:shadow-[var(--shadow-elevated)] md:right-8 md:bottom-8"
     >
       <MessageCircle className="h-7 w-7" fill="black" strokeWidth={0} />
     </motion.a>

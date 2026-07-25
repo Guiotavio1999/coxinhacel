@@ -17,7 +17,7 @@ export default async function AppleIcon() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          backgroundColor: "#050506",
+          backgroundColor: "#030405",
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element -- ImageResponse (satori) exige <img>, não next/image */}

@@ -31,7 +31,7 @@ export function LoadingState() {
       <motion.div
         animate={{ opacity: [0.6, 1, 0.6], scale: [0.96, 1, 0.96] }}
         transition={{ duration: 1.8, repeat: Infinity, ease: EASE_PREMIUM }}
-        className="drop-shadow-[0_0_18px_rgba(46,124,246,0.55)]"
+        className="drop-shadow-[0_0_18px_rgba(47,128,255,0.55)]"
       >
         <Image src="/logo.png" alt="Coxinha Cel" width={56} height={56} className="rounded-full" />
       </motion.div>

@@ -34,7 +34,7 @@ export default async function OpengraphImage() {
           style={{
             marginTop: 32,
             fontSize: 32,
-            color: "#8e8e96",
+            color: "#9299a6",
             textAlign: "center",
             maxWidth: 820,
           }}

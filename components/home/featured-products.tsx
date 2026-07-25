@@ -15,13 +15,13 @@ import { fadeUp } from "@/lib/motion";
  */
 export function FeaturedProducts() {
   return (
-    <section className="border-border-subtle border-t py-20 md:py-28">
+    <section className="py-20 md:py-28">
       <div className="container-site">
         <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:items-end">
           <SectionHeading
             eyebrow="Destaques"
-            title="Aparelhos selecionados"
-            description="Os melhores aparelhos disponíveis agora na loja, escolhidos pela nossa equipe."
+            title="Os mais desejados estão aqui."
+            description="Confira os aparelhos selecionados pela equipe da Coxinha Cel."
           />
           <Button variant="outline" asChild>
             <Link href="/produtos">Ver catálogo completo</Link>
