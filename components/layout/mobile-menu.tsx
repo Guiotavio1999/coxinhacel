@@ -3,8 +3,10 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
 import { Menu } from "lucide-react";
 
+import { Logo } from "./logo";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -16,6 +18,7 @@ import {
 import { mainNavItems } from "@/config/navigation";
 import { siteConfig } from "@/config/site";
 import { buildDefaultWhatsappLink } from "@/lib/utils/whatsapp";
+import { staggerContainer, fadeUp } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 export function MobileMenu() {
@@ -35,26 +38,38 @@ export function MobileMenu() {
         </Button>
       </SheetTrigger>
       <SheetContent>
-        <SheetTitle className="mb-8">Menu</SheetTitle>
-        <nav className="flex flex-col gap-1" aria-label="Navegação principal">
+        <SheetTitle className="sr-only">Menu</SheetTitle>
+        <div className="mb-10">
+          <Logo />
+        </div>
+
+        <motion.nav
+          className="flex flex-col gap-1"
+          aria-label="Navegação principal"
+          initial="hidden"
+          animate={open ? "visible" : "hidden"}
+          variants={staggerContainer(0.06, 0.08)}
+        >
           {mainNavItems.map((item) => {
             const isActive = pathname === item.href;
             return (
-              <SheetClose asChild key={item.href}>
-                <Link
-                  href={item.href}
-                  className={cn(
-                    "text-foreground hover:bg-surface-2 rounded-lg px-3 py-3 text-base font-medium transition-colors",
-                    isActive && "bg-surface-2 text-accent-light",
-                  )}
-                  aria-current={isActive ? "page" : undefined}
-                >
-                  {item.label}
-                </Link>
-              </SheetClose>
+              <motion.div key={item.href} variants={fadeUp}>
+                <SheetClose asChild>
+                  <Link
+                    href={item.href}
+                    className={cn(
+                      "text-foreground hover:bg-surface-2 block rounded-lg px-3 py-3 text-base font-medium transition-colors",
+                      isActive && "bg-surface-2 text-accent-light",
+                    )}
+                    aria-current={isActive ? "page" : undefined}
+                  >
+                    {item.label}
+                  </Link>
+                </SheetClose>
+              </motion.div>
             );
           })}
-        </nav>
+        </motion.nav>
 
         <div className="mt-auto flex flex-col gap-3 pt-8">
           <Button variant="whatsapp" asChild>

@@ -1,5 +1,7 @@
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { buildDefaultWhatsappLink } from "@/lib/utils/whatsapp";
+import { fadeUp } from "@/lib/motion";
 
 export function FinalCta() {
   return (
@@ -9,7 +11,7 @@ export function FinalCta() {
         className="pointer-events-none absolute top-1/2 left-1/2 h-[480px] w-[480px] -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{ boxShadow: "var(--shadow-glow)" }}
       />
-      <div className="container-narrow relative text-center">
+      <ScrollReveal variants={fadeUp} className="container-narrow relative text-center">
         <h2 className="font-display text-foreground text-3xl font-semibold tracking-tight text-balance sm:text-4xl">
           Encontrou o aparelho ideal?
         </h2>
@@ -28,7 +30,7 @@ export function FinalCta() {
             </a>
           </Button>
         </div>
-      </div>
+      </ScrollReveal>
     </section>
   );
 }

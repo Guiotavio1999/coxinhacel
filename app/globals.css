@@ -36,6 +36,10 @@
   --color-warning: #fbbf24;
   --color-danger: #f87171;
 
+  /* ---- WhatsApp (extraído do hex hardcoded em button.tsx / whatsapp-float-button.tsx) ---- */
+  --color-whatsapp: #25d366;
+  --color-whatsapp-dark: #1fbd5a;
+
   /* ---- Tipografia ---- */
   /* Fontes de sistema por decisão de arquitetura: evita dependência de
      download de fontes externas em tempo de build (ver documentation/
@@ -68,6 +72,24 @@
   --shadow-card: 0 8px 30px -12px rgb(0 0 0 / 0.5);
   --shadow-glow: 0 0 120px 20px rgb(46 124 246 / 0.18);
   --shadow-glow-strong: 0 0 160px 40px rgb(46 124 246 / 0.28);
+  --shadow-glow-sm: 0 0 40px 6px rgb(46 124 246 / 0.25);
+
+  /* ---- Blur ---- */
+  --blur-sm: 8px;
+  --blur-md: 20px;
+  --blur-lg: 48px;
+
+  /* ---- Gradientes reutilizáveis ---- */
+  --gradient-radial-accent: radial-gradient(
+    circle at 50% 35%,
+    rgb(46 124 246 / 0.35),
+    rgb(5 5 6 / 0) 60%
+  );
+  --gradient-surface: linear-gradient(
+    180deg,
+    var(--color-surface-2) 0%,
+    var(--color-surface-1) 100%
+  );
 
   /* ---- Transições ---- */
   --ease-premium: cubic-bezier(0.16, 1, 0.3, 1);
@@ -91,6 +113,8 @@
   --color-success: var(--color-success);
   --color-warning: var(--color-warning);
   --color-danger: var(--color-danger);
+  --color-whatsapp: var(--color-whatsapp);
+  --color-whatsapp-dark: var(--color-whatsapp-dark);
 
   --font-display: var(--font-display);
   --font-body: var(--font-body);
@@ -100,6 +124,9 @@
   --radius-md: var(--radius-md);
   --radius-lg: var(--radius-lg);
   --radius-xl: var(--radius-xl);
+
+  /* Habilita a utility `ease-premium` (namespace --ease-* do Tailwind v4). */
+  --ease-premium: var(--ease-premium);
 }
 
 html {

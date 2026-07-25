@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu } from "lucide-react";
 
+import { Logo } from "@/components/layout/logo";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -39,7 +40,10 @@ export function AdminTopbar() {
           </Button>
         </SheetTrigger>
         <SheetContent>
-          <SheetTitle className="mb-8">Painel administrativo</SheetTitle>
+          <SheetTitle className="sr-only">Painel administrativo</SheetTitle>
+          <div className="mb-8">
+            <Logo />
+          </div>
           <nav
             className="flex flex-col gap-1"
             aria-label="Navegação do painel administrativo"

@@ -91,8 +91,8 @@ export function AdminLoginForm() {
         </p>
       ) : null}
 
-      <Button type="submit" className="w-full" disabled={isSubmitting}>
-        {isSubmitting ? "Entrando…" : "Entrar"}
+      <Button type="submit" className="w-full" isLoading={isSubmitting}>
+        Entrar
       </Button>
     </form>
   );

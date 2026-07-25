@@ -2,6 +2,8 @@ import Link from "next/link";
 import { PackageSearch } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/shared/scroll-reveal";
+import { fadeUp } from "@/lib/motion";
 
 /**
  * Seção de produtos em destaque.
@@ -26,13 +28,16 @@ export function FeaturedProducts() {
           </Button>
         </div>
 
-        <div className="border-border-subtle bg-surface-1/50 mt-14 flex flex-col items-center justify-center rounded-2xl border border-dashed px-6 py-20 text-center">
+        <ScrollReveal
+          variants={fadeUp}
+          className="border-border-subtle bg-surface-1/50 mt-14 flex flex-col items-center justify-center rounded-2xl border border-dashed px-6 py-20 text-center"
+        >
           <PackageSearch className="text-muted h-8 w-8" aria-hidden="true" />
           <p className="text-muted mt-4 max-w-sm text-sm">
             Os aparelhos em destaque aparecerão aqui assim que o catálogo for publicado
             pelo painel administrativo.
           </p>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

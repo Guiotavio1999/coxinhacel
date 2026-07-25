@@ -1,11 +1,21 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-const Card = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
-  ({ className, ...props }, ref) => (
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  /** Aplica lift + glow de borda no hover (cards de vitrine/produto/avaliação). */
+  hoverable?: boolean;
+}
+
+const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  ({ className, hoverable = false, ...props }, ref) => (
     <div
       ref={ref}
-      className={cn("border-border-subtle bg-surface-1 rounded-2xl border", className)}
+      className={cn(
+        "border-border-subtle bg-surface-1 ease-premium rounded-2xl border transition-[transform,box-shadow,border-color] duration-[var(--duration-base)]",
+        hoverable &&
+          "hover:border-accent/40 hover:shadow-[var(--shadow-elevated)] hover:-translate-y-1",
+        className,
+      )}
       {...props}
     />
   ),

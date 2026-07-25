@@ -1,3 +1,9 @@
+"use client";
+
+import { motion } from "framer-motion";
+
+import { fadeUp, staggerContainer } from "@/lib/motion";
+
 interface SectionHeadingProps {
   eyebrow?: string;
   title: string;
@@ -12,17 +18,30 @@ export function SectionHeading({
   align = "left",
 }: SectionHeadingProps) {
   return (
-    <div className={align === "center" ? "text-center" : "text-left"}>
+    <motion.div
+      className={align === "center" ? "text-center" : "text-left"}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-80px" }}
+      variants={staggerContainer(0.1)}
+    >
       {eyebrow ? (
-        <p className="text-accent-light mb-3 text-xs font-semibold tracking-[0.14em] uppercase">
+        <motion.p
+          variants={fadeUp}
+          className="text-accent-light mb-3 text-xs font-semibold tracking-[0.14em] uppercase"
+        >
           {eyebrow}
-        </p>
+        </motion.p>
       ) : null}
-      <h2 className="font-display text-foreground text-3xl font-semibold tracking-tight sm:text-4xl">
+      <motion.h2
+        variants={fadeUp}
+        className="font-display text-foreground text-3xl font-semibold tracking-tight sm:text-4xl"
+      >
         {title}
-      </h2>
+      </motion.h2>
       {description ? (
-        <p
+        <motion.p
+          variants={fadeUp}
           className={
             align === "center"
               ? "text-muted mx-auto mt-4 max-w-2xl text-balance"
@@ -30,8 +49,8 @@ export function SectionHeading({
           }
         >
           {description}
-        </p>
+        </motion.p>
       ) : null}
-    </div>
+    </motion.div>
   );
 }
