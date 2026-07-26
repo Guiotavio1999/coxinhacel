@@ -71,7 +71,7 @@ export function ContactForm() {
         ) : null}
       </div>
 
-      <Button type="submit" variant="whatsapp" className="w-full" disabled={isSubmitting}>
+      <Button type="submit" variant="whatsapp" className="w-full" isLoading={isSubmitting}>
         Enviar pelo WhatsApp
       </Button>
     </form>

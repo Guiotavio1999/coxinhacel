@@ -46,11 +46,17 @@ export function AdminSidebar() {
               href={item.href}
               aria-current={isActive ? "page" : undefined}
               className={cn(
-                "text-muted hover:bg-surface-2 hover:text-foreground flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors",
+                "text-muted hover:bg-surface-2 hover:text-foreground ease-premium relative flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-colors duration-[var(--duration-fast)]",
                 isActive &&
                   "bg-accent/10 text-accent-light hover:bg-accent/10 hover:text-accent-light",
               )}
             >
+              {isActive && (
+                <span
+                  className="bg-accent absolute top-1/2 -left-4 h-4 w-0.5 -translate-y-1/2 rounded-full"
+                  aria-hidden="true"
+                />
+              )}
               <Icon className="h-4 w-4" aria-hidden="true" />
               {item.label}
             </Link>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { Hero } from "@/components/home/hero";
+import { TrustBand } from "@/components/home/trust-band";
 import { FeaturedProducts } from "@/components/home/featured-products";
 import { WhyUs } from "@/components/home/why-us";
 import { Categories } from "@/components/home/categories";
@@ -20,6 +21,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <TrustBand />
       <FeaturedProducts />
       <WhyUs />
       <Categories />

@@ -1,6 +1,11 @@
+"use client";
+
 import Link from "next/link";
-import { SectionHeading } from "./section-heading";
+import { motion } from "framer-motion";
 import { Smartphone, Watch, Tablet, Headphones } from "lucide-react";
+
+import { SectionHeading } from "./section-heading";
+import { fadeUp, staggerContainer } from "@/lib/motion";
 
 /**
  * Grade de categorias de acesso rápido. Os itens abaixo refletem o
@@ -28,21 +33,28 @@ export function Categories() {
           align="center"
         />
 
-        <div className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+        <motion.div
+          className="mt-14 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={staggerContainer(0.06)}
+        >
           {categoryPreview.map(({ icon: Icon, name }) => (
-            <Link
-              key={name}
-              href="/produtos"
-              className="group border-border-subtle bg-surface-1 hover:border-accent/40 flex flex-col items-center gap-3 rounded-2xl border px-4 py-8 text-center transition-colors"
-            >
-              <Icon
-                className="text-muted group-hover:text-accent-light h-6 w-6 transition-colors"
-                aria-hidden="true"
-              />
-              <span className="text-foreground text-sm font-medium">{name}</span>
-            </Link>
+            <motion.div key={name} variants={fadeUp}>
+              <Link
+                href="/produtos"
+                className="group border-border-subtle bg-surface-1 hover:border-accent/40 ease-premium flex h-full flex-col items-center gap-3 rounded-2xl border px-4 py-8 text-center transition-[border-color,transform,box-shadow] duration-[var(--duration-base)] hover:-translate-y-1 hover:shadow-[var(--shadow-card)]"
+              >
+                <Icon
+                  className="text-muted group-hover:text-accent-light h-6 w-6 transition-colors"
+                  aria-hidden="true"
+                />
+                <span className="text-foreground text-sm font-medium">{name}</span>
+              </Link>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

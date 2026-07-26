@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { MessageCircle } from "lucide-react";
 
 import { buildDefaultWhatsappLink } from "@/lib/utils/whatsapp";
+import { EASE_PREMIUM } from "@/lib/motion";
 
 /**
  * Botão flutuante de WhatsApp, fixo no canto inferior direito em todas as
@@ -20,10 +21,10 @@ export function WhatsappFloatButton() {
       aria-label="Falar com a Coxinha Cel no WhatsApp"
       initial={{ opacity: 0, scale: 0.8, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
-      transition={{ delay: 0.6, duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+      transition={{ delay: 0.6, duration: 0.4, ease: EASE_PREMIUM }}
       whileHover={{ scale: 1.06 }}
       whileTap={{ scale: 0.96 }}
-      className="fixed right-5 bottom-5 z-40 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-black shadow-[0_8px_30px_-8px_rgba(37,211,102,0.6)] md:right-8 md:bottom-8"
+      className="bg-whatsapp ease-premium fixed right-5 bottom-5 z-40 flex h-14 w-14 items-center justify-center rounded-full text-black shadow-[var(--shadow-card)] transition-shadow duration-[var(--duration-base)] hover:shadow-[var(--shadow-elevated)] md:right-8 md:bottom-8"
     >
       <MessageCircle className="h-7 w-7" fill="black" strokeWidth={0} />
     </motion.a>

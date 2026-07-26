@@ -1,10 +1,32 @@
 import type { Metadata } from "next";
+import { Inter, Space_Grotesk } from "next/font/google";
 
 import "../globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { WhatsappFloatButton } from "@/components/layout/whatsapp-float-button";
 import { siteConfig } from "@/config/site";
+import { cn } from "@/lib/utils";
+
+/**
+ * Space Grotesk (títulos) + Inter (texto corrido) via next/font/google —
+ * baixadas uma vez em build time e auto-hospedadas (sem CDN externa em
+ * runtime, sem layout shift). As variáveis CSS geradas alimentam
+ * --font-display/--font-body em app/globals.css.
+ */
+const spaceGrotesk = Space_Grotesk({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-space-grotesk",
+  display: "swap",
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-inter",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -26,9 +48,6 @@ export const metadata: Metadata = {
     title: siteConfig.seo.defaultTitle,
     description: siteConfig.seo.defaultDescription,
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export default function RootLayout({
@@ -37,7 +56,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className="h-full antialiased">
+    <html
+      lang="pt-BR"
+      className={cn(spaceGrotesk.variable, inter.variable, "h-full antialiased")}
+    >
       <body className="bg-background font-body text-foreground flex min-h-full flex-col">
         <a
           href="#conteudo-principal"

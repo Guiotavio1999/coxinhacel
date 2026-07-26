@@ -1,31 +1,45 @@
+import Image from "next/image";
 import Link from "next/link";
+
 import { cn } from "@/lib/utils";
 
+interface LogoProps {
+  className?: string;
+  size?: "sm" | "md" | "lg";
+}
+
+const SIZE_PX = {
+  sm: 34,
+  md: 42,
+  lg: 60,
+} as const;
+
 /**
- * Logo textual da Coxinha Cel.
- *
- * A logo real da loja (aplicada no Instagram e nos materiais gráficos) é uma
- * marca em 3D com uma maçã e uma gota azul. Este componente reproduz a
- * mesma ideia de forma tipográfica e leve para a web — "Coxinha" em branco
- * e "Cel" destacado em azul elétrico, com um pequeno indicador circular
- * (o "pingo") que ecoa o anel de brilho da marca. Quando o arquivo de logo
- * (SVG/PNG) for fornecido pelo administrador, ele poderá substituir este
- * componente via `store_settings.logoUrl`.
+ * Logotipo oficial da Coxinha Cel (`public/logo.png`) — ponto único de uso
+ * da marca em todo o site (header, rodapé, menu mobile, admin, login,
+ * loading). A imagem já é o lockup completo (símbolo + "Coxinha Cell"), por
+ * isso não há texto adicional aqui.
  */
-export function Logo({ className }: { className?: string }) {
+export function Logo({ className, size = "md" }: LogoProps) {
+  const px = SIZE_PX[size];
+
   return (
     <Link
       href="/"
       className={cn(
-        "group font-display text-foreground flex items-center gap-2 text-xl font-semibold tracking-tight",
+        "ease-premium inline-flex shrink-0 items-center transition-transform duration-[var(--duration-base)] hover:scale-105",
         className,
       )}
       aria-label="Coxinha Cel — página inicial"
     >
-      <span className="relative flex h-2.5 w-2.5 items-center justify-center">
-        <span className="bg-accent absolute inset-0 rounded-full shadow-[0_0_12px_2px_rgba(46,124,246,0.7)] transition-transform duration-300 group-hover:scale-125" />
-      </span>
-      Coxinha<span className="text-accent-light">Cel</span>
+      <Image
+        src="/logo.png"
+        alt="Coxinha Cel"
+        width={px}
+        height={px}
+        priority
+        className="rounded-full"
+      />
     </Link>
   );
 }

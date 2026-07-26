@@ -2,6 +2,8 @@ import Link from "next/link";
 import { MessageSquareQuote } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/shared/scroll-reveal";
+import { fadeUp } from "@/lib/motion";
 
 /**
  * Seção de avaliações da página inicial.
@@ -23,7 +25,10 @@ export function Testimonials() {
           align="center"
         />
 
-        <div className="border-border-subtle bg-surface-1/50 mt-14 flex flex-col items-center justify-center rounded-2xl border border-dashed px-6 py-20 text-center">
+        <ScrollReveal
+          variants={fadeUp}
+          className="border-border-subtle bg-surface-1/50 mt-14 flex flex-col items-center justify-center rounded-2xl border border-dashed px-6 py-20 text-center"
+        >
           <MessageSquareQuote className="text-muted h-8 w-8" aria-hidden="true" />
           <p className="text-muted mt-4 max-w-sm text-sm">
             As avaliações cadastradas pela equipe da Coxinha Cel aparecerão aqui.
@@ -31,7 +36,7 @@ export function Testimonials() {
           <Button variant="outline" size="sm" className="mt-6" asChild>
             <Link href="/avaliacoes">Ver todas as avaliações</Link>
           </Button>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );

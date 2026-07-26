@@ -1,9 +1,11 @@
 import { MapPin, Clock, Phone } from "lucide-react";
 import { SectionHeading } from "./section-heading";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/shared/scroll-reveal";
 import { siteConfig } from "@/config/site";
 import { formatBrazilianPhone } from "@/lib/utils/phone";
 import { getFormattedBusinessHours } from "@/lib/utils/store-hours";
+import { fadeUp, scaleIn } from "@/lib/motion";
 
 export function Location() {
   const hours = getFormattedBusinessHours();
@@ -14,7 +16,7 @@ export function Location() {
   return (
     <section className="border-border-subtle border-t py-20 md:py-28">
       <div className="container-site grid gap-10 lg:grid-cols-2 lg:items-center">
-        <div>
+        <ScrollReveal variants={fadeUp}>
           <SectionHeading eyebrow="Onde estamos" title="Nossa loja em Betim" />
 
           <dl className="mt-8 space-y-6">
@@ -89,17 +91,19 @@ export function Location() {
               </a>
             </Button>
           </div>
-        </div>
+        </ScrollReveal>
 
-        <div className="border-border-subtle overflow-hidden rounded-2xl border">
-          <iframe
-            title="Localização da Coxinha Cel em Betim"
-            src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
-            className="h-80 w-full contrast-[1.1] grayscale invert-[0.92] lg:h-full"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
-        </div>
+        <ScrollReveal variants={scaleIn} delay={0.15}>
+          <div className="border-border-subtle overflow-hidden rounded-2xl border">
+            <iframe
+              title="Localização da Coxinha Cel em Betim"
+              src={`https://www.google.com/maps?q=${mapQuery}&output=embed`}
+              className="h-80 w-full contrast-[1.1] grayscale invert-[0.92] lg:h-full"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );
